@@ -1,3 +1,5 @@
+'use strict';
+
 console.log("");
 console.log("//************************* ROS **************************//");
 console.log("");
@@ -7,7 +9,7 @@ const config = require('./lib/config');
 
 config.dbConfig(config.cfg, (err) => {
     if (err) {
-        console.error(err, 'exiting the app.');
+        logger.error(err, 'exiting the app.');
         return;
     }
 
@@ -19,9 +21,6 @@ config.dbConfig(config.cfg, (err) => {
 
     // set server home directory
     app.locals.rootDir = __dirname;
-
-    //set winston logger
-    // global.logger = require('./lib/config/loggerConfig');
  
     // config express
     config.expressConfig(app, config.cfg.environment);
@@ -32,6 +31,6 @@ config.dbConfig(config.cfg, (err) => {
 
     // start server
     app.listen(config.cfg.port, () => {
-        console.info(`Express server listening on ${config.cfg.port}, in ${config.cfg.TAG} mode`);
+        logger.info(`Express server listening on ${config.cfg.port}, in ${config.cfg.TAG} mode`);
     });
 });
