@@ -6,6 +6,7 @@ console.log("");
 
 //Import Config
 const config = require('./lib/config');
+const adminServices = require('./lib/module/admin/adminService');
 
 config.dbConfig(config.cfg, (err) => {
     if (err) {
@@ -28,6 +29,9 @@ config.dbConfig(config.cfg, (err) => {
     
     // attach the routes to the app
     require("./lib/routes")(app);
+
+    // pre-load default data
+    adminServices.createdefaultAdmin();
 
     // start server
     app.listen(config.cfg.port, () => {
