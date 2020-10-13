@@ -7,6 +7,8 @@ console.log("");
 //Import Config
 const config = require('./lib/config');
 const adminServices = require('./lib/module/admin/adminService');
+const invoiceCron = require('./lib/crons/invoiceCron');
+
 
 config.dbConfig(config.cfg, (err) => {
     if (err) {
@@ -32,6 +34,8 @@ config.dbConfig(config.cfg, (err) => {
 
     // pre-load default data
     adminServices.createdefaultAdmin();
+
+    invoiceCron.startInvoiceCron();
 
     // start server
     app.listen(config.cfg.port, () => {
