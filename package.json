@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "NODE_ENV=dev nodemon server.js",
+    "stag": "NODE_ENV=stag node server.js",
     "start": "NODE_ENV=dev node server.js"
   },
   "keywords": [],
@@ -18,6 +19,7 @@
     "chalk": "^4.1.0",
     "cloudinary": "^1.22.0",
     "cors": "^2.8.5",
+    "cron": "^1.8.2",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.10",
     "helmet": "^3.23.3",
