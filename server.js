@@ -26,7 +26,7 @@ config.dbConfig(config.cfg, (err) => {
     app.locals.rootDir = __dirname;
  
     // config express
-    config.expressConfig(app, config.cfg.environment);
+    config.expressConfig(app, config.cfg.environment, express);
     if(err)return res.json(err)
     
     // attach the routes to the app
