@@ -8,6 +8,7 @@ console.log("");
 const config = require('./lib/config');
 const adminServices = require('./lib/module/admin/adminService');
 const invoiceCron = require('./lib/crons/invoiceCron');
+const {sendMail} = require('./lib/commonHandler/mailHandler')
 
 
 config.dbConfig(config.cfg, (err) => {
@@ -40,5 +41,6 @@ config.dbConfig(config.cfg, (err) => {
     // start server
     app.listen(config.cfg.port, () => {
         logger.info(`Express server listening on ${config.cfg.port}, in ${config.cfg.TAG} mode`);
+
     });
 });
